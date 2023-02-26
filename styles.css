@@ -2,4 +2,72 @@
     background-color: red;
 
 }
+
+.heading {
+    background-color: #484848;
+    color:#D0D0D0;
+    text-align: center;
+    margin: 0; 
+    padding: 25px; 
+    box-sizing: border-box; 
+    font-weight: 300;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    
+
+}
+
+#inputBoxes {
+    width: 100%;
+}
+
+#submitEmployeeBtn {
+    width: 12%;
+    font-size: 16px;
+    position: relative;
+    position: relative;
+    top: 43px;
+
+}
+
+#tableLables {
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: 600;
+}
+
+#tableLables tr {
+    border: 1px solid black;
+    padding: 8 px;
+}
+
+#tableLables th {
+    border: 1px solid black;
+    padding: 8 px;
+}
+
+#employeeList {
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: 600;
+    padding: 10px;
+}
  
+#employeeList th {
+ border: 1px solid black;
+ padding: 8 px;
+}
+
+#employeeList td {
+    border: 1px solid black;
+    padding: 8 px;
+   }
+
+/* .total {
+    text-align: right;
+}
+
+#salaryTable td {
+    align-items: end;
+} */
+
+
