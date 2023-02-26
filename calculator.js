@@ -1,5 +1,8 @@
 let allEmployees = [];
 
+
+let salary = 0;
+
 $(document).ready(readyNow);
 
 function readyNow() {
@@ -18,14 +21,14 @@ function deleteEmployee(){
     // let deleteBtn = $(this);
     // new array for deleted employees
     let newEmployees = [];
-    //use ID number to delete from employees[]
-    const idNumberToDelete = $(this).parent().siblings().first().text();
-    //console should show the ID number for employee to delete
-    console.log("Employee to delete:", idNumberToDelete);
+    //use first name to delete from employees[]
+    const firstNameToDelete = $(this).parent().siblings().first().text();
+    //console should show the first name for employee to delete
+    console.log("Employee to delete:", firstNameToDelete);
 
     for (let employee of allEmployees) {
        
-        if (employee.firstName !== idNumberToDelete) {
+        if (employee.firstName !== firstNameToDelete) {
             newEmployees.push(employee);
         }
        
@@ -33,11 +36,15 @@ function deleteEmployee(){
     allEmployees = newEmployees;
     console.log("these are new employees", newEmployees);
     console.log("these are all employees", allEmployees);
+    
     render();
+
 
 }
 
+    
 function addNewEmployee() {
+
     console.log("Inside of addNewEmployee()");
     console.log("Employees before new employee added:", allEmployees);
 
@@ -65,11 +72,28 @@ function addNewEmployee() {
         idNumber: idNumberInputValue,
         jobTitle: titleInputValue,
         annualSalary: annualSalaryInputValue
+
     };
 
+    
     //add to array
     allEmployees.push(newEmployeeToAdd);
     console.log("Employees after new employee added:", allEmployees);
+
+    let totalSalaryOfAllEmployees = 0;
+   
+    //loop to calculate monthly costs
+    for (let employee of allEmployees) {
+        totalSalaryOfAllEmployees += 1 * (employee.annualSalary);
+    }
+    console.log('total salary for all employees', totalSalaryOfAllEmployees);
+
+    salary = totalSalaryOfAllEmployees;
+
+   
+   newSalary();
+
+   clearInput();
 
     //render the DOM after new employee added
     //re-render when new employee added
@@ -77,7 +101,37 @@ function addNewEmployee() {
 
 }
 
+function newSalary() {
+ //if total salary exceeds $20,000, background of form turns red
+ if (salary > 20000) {
+    console.log("total salary", salary);
+    $("#salaryTable").addClass("maxSalary");
+};
+}
+
+function clearInput() {
+    const firstNameInputValue = $("#firstNameInput").val("");
+    const lastNameInputValue = $("#lastNameInput").val("");
+    const idNumberInputValue = $("#idNumber").val("");
+    const titleInputValue = $("#jobTitle").val("");
+    const annualSalaryInputValue = $("#annualSalary").val("");
+}
+
+
+
 function render() {
+    //reset monthly total
+    $("#salaryTable").empty();
+
+    //add monthly total to DOM
+    $("#salaryTable").append(`
+    <tr>
+        <td>${salary}</td>
+    <tr>
+    `);
+    
+
+
     //reset employee list
     $("#employeeList").empty();
 
@@ -100,4 +154,6 @@ function render() {
         </tr>
         `);
     };
-}
+
+    
+};
