@@ -29,45 +29,26 @@
 
 }
 
-#tableLables {
-    border-collapse: collapse;
+#employeeTable {
+    border: 1px solid black;
+    padding: 8 px;
     width: 100%;
-    font-weight: 600;
-}
-
-#tableLables tr {
-    border: 1px solid black;
-    padding: 8 px;
-}
-
-#tableLables th {
-    border: 1px solid black;
-    padding: 8 px;
-}
-
-#employeeList {
+    text-align: center;
+    white-space: nowrap;
     border-collapse: collapse;
-    width: 100%;
-    font-weight: 600;
-    padding: 10px;
-}
- 
-#employeeList th {
- border: 1px solid black;
- padding: 8 px;
 }
 
-#employeeList td {
-    border: 1px solid black;
-    padding: 8 px;
-   }
+table td {
+    padding: 0.5rem;
+    border: 5px solid black;
+}
 
-/* .total {
+table th {
+    padding: 0.5rem;
+    border: 5px solid black;
+
+}
+
+#salaryTable {
     text-align: right;
 }
-
-#salaryTable td {
-    align-items: end;
-} */
-
-
